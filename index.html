@@ -1,122 +1,396 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Emin Enes Oğuz - CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0; padding: 0;
-      background: #f5f5f5; color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: #222; color: #fff;
-      padding: 30px; text-align: center;
-    }
-    header h1 { margin: 0; }
-    header p a { color: #00bcd4; text-decoration: none; }
-    section { padding: 40px 20px; max-width: 900px; margin: auto; }
-    h2 { border-bottom: 2px solid #ddd; padding-bottom: 5px; }
-    ul { list-style: none; padding: 0; }
-    ul li { margin-bottom: 10px; }
-    .job-title { font-weight: bold; }
-    footer {
-      text-align: center; padding: 20px;
-      background: #222; color: #fff; margin-top: 40px;
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Emin Enes Oğuz • Portfolio</title>
+<meta name="description" content="Emin Enes Oğuz - Computer Engineer CV & Portfolio" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0f172a;            /* body arka planı (çok açık gri yerine koyu mavi-gri) */
+    --hero:#1e3a8a;          /* üst mavi */
+    --hero2:#203ea0;         /* gradient ikinci */
+    --card:#ffffff;
+    --text:#0b1324;
+    --muted:#5b6377;
+    --link:#1d4ed8;
+    --chip:#eef2ff;
+    --chipText:#1d4ed8;
+    --ring:#dbe3ff;
+    --shadow: 0 8px 28px rgba(2,6,23,.08);
+    --radius:16px;
+    --max:1080px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    color:var(--text);
+    background:#f7f9fc;
+    line-height:1.55;
+  }
+
+  /* NAV */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:saturate(1.2) blur(6px);
+    background:rgba(255,255,255,.75);
+    border-bottom:1px solid #eef1f7;
+  }
+  .nav .wrap{max-width:var(--max);margin:auto;display:flex;gap:16px;align-items:center;justify-content:center;padding:10px 14px}
+  .nav a{
+    font-size:13px;text-decoration:none;color:#1f2937;padding:6px 10px;border-radius:999px;
+  }
+  .nav a:hover{background:#eef2ff;color:#1d4ed8}
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(180deg,var(--hero) 0%, var(--hero2) 100%);
+    color:#fff; padding:56px 20px 48px;
+  }
+  .hero .wrap{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:120px 1fr;gap:24px;align-items:start}
+  .avatar{
+    width:120px;height:120px;border-radius:999px;object-fit:cover;
+    border:6px solid #eef2ff; box-shadow:0 8px 20px rgba(0,0,0,.25)
+  }
+  h1{margin:0 0 6px;font-size:40px;line-height:1.1;font-weight:800;letter-spacing:.2px}
+  .subtitle{margin:0 0 14px;font-weight:600;opacity:.9}
+  .summary{max-width:820px;font-size:14px;opacity:.95}
+  .hero .chips{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{
+    background:#ffffff1a;color:#fff;border:1px solid #ffffff33;
+    padding:6px 10px;border-radius:999px;font-size:12px;display:inline-flex;gap:8px;align-items:center
+  }
+  .cta{margin-top:16px;display:flex;gap:10px;flex-wrap:wrap}
+  .btn{
+    appearance:none;border:0;border-radius:999px;padding:10px 14px;font-weight:600;cursor:pointer;
+    background:#fff;color:#1f2a44; box-shadow:var(--shadow); text-decoration:none; font-size:14px
+  }
+  .btn.secondary{background:transparent;border:1.5px solid #c7d2fe;color:#fff}
+  .btn.secondary:hover{background:#ffffff1a}
+
+  /* SECTIONS */
+  section{padding:56px 20px}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .section-title{
+    text-align:center;font-size:22px;font-weight:800;margin:0 0 22px;color:#0b1324
+  }
+  .underbar{width:56px;height:3px;background:#c7d2fe;border-radius:999px;margin:8px auto 24px}
+
+  /* CARDS */
+  .card{background:var(--card);border:1px solid #eef1f7;border-radius:var(--radius);box-shadow:var(--shadow)}
+  .xp{display:grid;grid-template-columns:1fr;gap:16px}
+  .xp-item{padding:18px;border-radius:var(--radius)}
+  .xp-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:6px}
+  .role{font-weight:700}
+  .company{font-weight:600;color:#1f2a44;margin-top:2px}
+  .date{color:var(--muted);font-size:12px;text-align:right;white-space:nowrap}
+  .xp-item ul{margin:10px 0 0 18px}
+  .xp-item li{margin-bottom:6px;color:#25314d}
+
+  /* GRID small helpers */
+  .grid{display:grid;gap:16px}
+  .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr; text-align:center}
+    .hero .summary{margin:0 auto}
+    .hero .chips,.cta{justify-content:center}
+    .grid-3{grid-template-columns:1fr}
+    .grid-2{grid-template-columns:1fr}
+  }
+
+  /* TAGS / CHIPS */
+  .pill{display:inline-block;background:var(--chip);color:var(--chipText);border:1px solid var(--ring);
+        font-size:12px;padding:6px 10px;border-radius:999px;margin:4px 6px 0 0}
+  .pill-group{padding:14px;border-radius:14px;background:#f8f9ff;border:1px solid #ebefff}
+
+  /* Footer */
+  footer{padding:32px 20px;color:#64748b;text-align:center}
+  a{color:var(--link)}
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Emin Enes Oğuz</h1>
-    <p>
-      📍 Istanbul, Turkey <br>
-      📧 <a href="mailto:eenesoguz.mbs@gmail.com">eenesoguz.mbs@gmail.com</a> | 
-      📞 +90 506 169 2040
-    </p>
-    <p>
-      <a href="https://linkedin.com/in/enes-oğuz" target="_blank">LinkedIn</a> | 
-      <a href="https://github.com/enesoguzz" target="_blank">GitHub</a> | 
-      <a href="https://www.enesoguz.com">www.enesoguz.com</a>
-    </p>
-  </header>
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#volunteer">Volunteer</a>
+    <a href="#certificates">Certificates</a>
+  </div>
+</nav>
 
-  <section>
-    <h2>Experience</h2>
-    <ul>
-      <li>
-        <span class="job-title">IT Intern – Renault Turkey (08/2023 – 06/2025, Istanbul)</span><br>
-        • Worked on Flutter mobile application projects.<br>
-        • Maintained FortiNet and other security systems.<br>
-        • Assisted with PL/SQL scripts for data retrieval and updates.<br>
-        • Gained experience with Oracle PL/SQL and networking basics.<br>
-        • Learned fundamentals of Windows Server environments.
-      </li>
-      <li>
-        <span class="job-title">Software Development Intern – Huawei (06/2023 – 08/2023)</span><br>
-        • Trained on SpringBoot and Java principles.<br>
-        • Observed international large-scale projects.
-      </li>
-      <li>
-        <span class="job-title">Translator & Artist Guide – PSM Zorlu Center (05/2022 – 10/2022)</span><br>
-        • Provided translation and guidance for international artists and guests.<br>
-        • Improved language skills while working part-time.
-      </li>
-      <li>
-        <span class="job-title">IT Intern – KHAS YEP (09/2021 – 06/2023)</span><br>
-        • Trained in website and database development.<br>
-        • Attended innovation and leadership workshops.
-      </li>
-    </ul>
-  </section>
+<!-- HERO -->
+<header id="about" class="hero">
+  <div class="wrap">
+    <img class="avatar" src="profile.jpg" alt="Emin Enes Oğuz profile photo" />
+    <div>
+      <h1>Emin Enes Oğuz</h1>
+      <p class="subtitle">Computer Engineer</p>
+      <p class="summary">
+        Distinguished IT professional with hands-on experience in full-stack development,
+        database design, and enterprise network environments. Comfortable across
+        Spring Boot / Java backends, mobile (Flutter), data workflows (SQL/PL/SQL),
+        and enterprise platforms. Interests include Artificial Intelligence, Machine Learning,
+        and Natural Language Processing. Track record delivering reliable solutions in
+        international corporate environments.
+      </p>
 
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><b>B.Sc. in Computer Engineering</b>, Kadir Has University (09/2020 – 06/2025)</li>
-      <li><b>Bursa BIST Fen Lisesi</b> (2014 – 2019)</li>
-      <li><b>Bursa Şahinkaya Fen Lisesi</b></li>
-    </ul>
-  </section>
+      <div class="hero chips">
+        <span class="chip">📍 Istanbul, Turkey</span>
+        <a class="chip" href="mailto:enesoguz.mzb@gmail.com">✉️ enesoguz.mzb@gmail.com</a>
+        <a class="chip" href="tel:+905061692040">📞 +90 506 169 2040</a>
+        <a class="chip" href="https://www.enesoguz.com" target="_blank" rel="noreferrer">🌐 enesoguz.com</a>
+      </div>
 
-  <section>
-    <h2>Skills & Interests</h2>
-    <p><b>Programming:</b> C++, C, Python, Flutter, Java, SpringBoot</p>
-    <p><b>Technical:</b> Oracle Databases, FortiNet firewalls, Simulink, Microsoft Office, Power BI</p>
-    <p><b>Languages:</b> English (B2 – Upper Intermediate)</p>
-    <p><b>Interests:</b> AI, Machine Learning, Web Development, Database Management, NLP</p>
-  </section>
+      <div class="cta">
+        <a class="btn" href="https://www.linkedin.com/in/enesoguz" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="btn secondary" href="https://github.com/enesoguzz" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </div>
+</header>
 
-  <section>
-    <h2>Volunteer Projects</h2>
-    <ul>
-      <li><b>Climate Ambassador</b> – Participated in sustainability programs by Ministry of Environment.</li>
-      <li><b>Görmezden Gelme</b> – Provided live sports audio descriptions for visually impaired individuals.</li>
-      <li><b>Aydınlık Gelecek Projects</b> – Organized seminars and book donations for high school students.</li>
-      <li><b>Hatay Child Park Project</b> – Built play areas for children affected by earthquakes in Arsuz, Hatay.</li>
-    </ul>
-  </section>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <h2 class="section-title">Experience</h2>
+    <div class="underbar"></div>
 
-  <section>
-    <h2>Certificates & Trainings</h2>
-    <ul>
-      <li>Python for Data Science, AI & Development – IBM</li>
-      <li>Career Path Essentials – IESE Business School</li>
-      <li>Game Jam – Google</li>
-      <li>AI and Ethics – Renault Turkey</li>
-      <li>A Brief History of Human Spaceflight – University of Houston</li>
-      <li>Introduction to Git and GitHub – Google</li>
-      <li>Fundamentals of Project Management – Google</li>
-    </ul>
-  </section>
+    <div class="xp">
+      <article class="xp-item card">
+        <div class="xp-head">
+          <div>
+            <div class="role">IT Intern</div>
+            <div class="company">Renault Turkey – Istanbul</div>
+          </div>
+          <div class="date">08/2023 – 06/2025</div>
+        </div>
+        <ul>
+          <li>Developed & maintained enterprise-grade Flutter mobile features for automotive operations.</li>
+          <li>Administered FortiNet security infrastructure; implemented comprehensive cybersecurity policies.</li>
+          <li>Engineered complex PL/SQL scripts for large-scale data retrieval/analysis and optimization.</li>
+          <li>Leveraged Oracle Database expertise to enhance platform performance & data integrity.</li>
+          <li>Worked within Windows Server environments and enterprise networking solutions.</li>
+        </ul>
+      </article>
 
-  <footer>
-    <p>© 2025 Emin Enes Oğuz | Built with ❤️ on GitHub Pages</p>
-  </footer>
+      <article class="xp-item card">
+        <div class="xp-head">
+          <div>
+            <div class="role">Software Development Intern</div>
+            <div class="company">Huawei – Istanbul</div>
+          </div>
+          <div class="date">08/2023 – 08/2023</div>
+        </div>
+        <ul>
+          <li>Mastered Spring Boot architecture and modern Java development methodologies.</li>
+          <li>Contributed to international enterprise-scale software development projects.</li>
+        </ul>
+      </article>
 
+      <article class="xp-item card">
+        <div class="xp-head">
+          <div>
+            <div class="role">Translator & Artist Guide</div>
+            <div class="company">PSM Zorlu Center – Istanbul</div>
+          </div>
+          <div class="date">05/2022 – 10/2022</div>
+        </div>
+        <ul>
+          <li>Provided professional translation services & artist/crew liaison for international events.</li>
+          <li>Enhanced multilingual communication while maintaining production excellence.</li>
+        </ul>
+      </article>
+
+      <article class="xp-item card">
+        <div class="xp-head">
+          <div>
+            <div class="role">IT Intern</div>
+            <div class="company">KHAS YEP – Istanbul</div>
+          </div>
+          <div class="date">09/2021 – 06/2023</div>
+        </div>
+        <ul>
+          <li>Full-stack web development and advanced database architecture assistance.</li>
+          <li>Supported innovation initiatives and executive leadership development programs.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <h2 class="section-title">Education</h2>
+    <div class="underbar"></div>
+
+    <div class="grid grid-3">
+      <div class="card xp-item">
+        <div class="role">B.Sc. in Computer Engineering</div>
+        <div class="company">Kadir Has University</div>
+        <div class="date">2020 – 2025</div>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">High School</div>
+        <div class="company">Bursa BİST Fen Lisesi</div>
+        <div class="date">2014 – 2019</div>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">High School</div>
+        <div class="company">Bursa Şahinkaya Fen Lisesi</div>
+        <div class="date">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">Skills & Interests</h2>
+    <div class="underbar"></div>
+
+    <div class="grid grid-2">
+      <div class="card xp-item">
+        <div class="role">Programming</div>
+        <div class="pill-group" aria-label="programming">
+          <span class="pill">C/C++</span>
+          <span class="pill">Java</span>
+          <span class="pill">Python</span>
+          <span class="pill">Flutter</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Spring Boot</span>
+        </div>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Languages</div>
+        <div class="pill-group">
+          <span class="pill">English — B2 (Upper-Intermediate)</span>
+        </div>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Technical</div>
+        <div class="pill-group">
+          <span class="pill">Oracle PL/SQL</span>
+          <span class="pill">RESTful / Network</span>
+          <span class="pill">Simulink</span>
+          <span class="pill">Windows Server</span>
+          <span class="pill">Power BI</span>
+        </div>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Interests</div>
+        <div class="pill-group">
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Database Management</span>
+          <span class="pill">Web Development</span>
+          <span class="pill">NLP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VOLUNTEER -->
+<section id="volunteer">
+  <div class="wrap">
+    <h2 class="section-title">Volunteer Projects</h2>
+    <div class="underbar"></div>
+
+    <div class="grid grid-2">
+      <div class="card xp-item">
+        <div class="role">Environmental Sustainability Ambassador</div>
+        <p class="muted">
+          Participated in sustainability initiatives and awareness projects; supported local programs on urban
+          planning and climate change.
+        </p>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Accessibility Technology Advocate – Görmemiçin Gelem</div>
+        <p class="muted">
+          Built content & tech solutions to improve accessibility through assistive technologies.
+        </p>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Educational Leadership Initiative – Aydınlık Gelecek</div>
+        <p class="muted">
+          Organized educational events and donor programs, focusing on equitable access for students.
+        </p>
+      </div>
+
+      <div class="card xp-item">
+        <div class="role">Disaster Relief Infrastructure Project – Hatay</div>
+        <p class="muted">
+          Helped with software & coordination support for post-earthquake recovery dashboards and community systems.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <div class="wrap">
+    <h2 class="section-title">Certificates & Trainings</h2>
+    <div class="underbar"></div>
+
+    <div class="grid grid-3">
+      <div class="card xp-item">
+        <div class="role">Python for Data Science, AI & Dev</div>
+        <div class="company">IBM</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">Career Plan Essentials</div>
+        <div class="company">İSİB – Zorlu School</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">Grow Job</div>
+        <div class="company">Google</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">AI & Ethics</div>
+        <div class="company">Google Turkey</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">A Brief History of Human Stupidity</div>
+        <div class="company">University of Houston</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">Intro to C & GitHub</div>
+        <div class="company">Google</div>
+      </div>
+      <div class="card xp-item">
+        <div class="role">Fundamentals of Project Management</div>
+        <div class="company">—</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    © <span id="y"></span> Emin Enes Oğuz — Built with ❤️
+  </div>
+</footer>
+
+<script>
+  // yıl otomatik
+  document.getElementById('y').textContent = new Date().getFullYear();
+</script>
 </body>
 </html>

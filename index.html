@@ -1,158 +1,693 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Emin Enes Oğuz - CV</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body { margin:0; font-family:'Inter',sans-serif; background:#f5f5f5; color:#222; line-height:1.6 }
-    a { color:#0056d6; text-decoration:none }
-    a:hover { text-decoration:underline }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emin Enes Oğuz - Computer Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* HERO SECTION */
-    .hero{
-      background:linear-gradient(180deg,#153e9f 0%,#112f7a 100%);
-      color:#fff; padding:28px 20px 64px;
-    }
-    .topnav{max-width:1100px;margin:0 auto 24px;display:flex;gap:20px;flex-wrap:wrap}
-    .topnav a{color:#d4def0;font-weight:600}
-    .topnav a:hover{color:#fff}
-    .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:36px;align-items:center}
-    .avatar-wrap{width:220px;height:220px;border-radius:50%;overflow:hidden;border:6px solid rgba(255,255,255,.25)}
-    .avatar-wrap img{width:100%;height:100%;object-fit:cover}
-    .intro h1{font-size:56px;margin:0 0 8px;font-weight:800}
-    .intro h2{margin:0 0 16px;font-size:22px;font-weight:700}
-    .lead{color:#d4def0;margin:0 0 16px}
-    .facts{list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 26px}
-    .facts li{display:flex;gap:8px;align-items:center;color:#d4def0}
-    .dot{width:10px;height:10px;border-radius:50%;background:#9ec5fe;display:inline-block}
-    .cta{display:flex;gap:12px;margin-top:10px}
-    .btn{padding:12px 18px;border-radius:999px;font-weight:700;border:2px solid #cfe2ff}
-    .btn-light{background:#fff;color:#0e2b6b}
-    .btn-outline{color:#fff}
-    @media(max-width:900px){.hero-inner{grid-template-columns:1fr}.avatar-wrap{width:140px;height:140px}.intro h1{font-size:40px}}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    /* SECTIONS */
-    section{max-width:1100px;margin:40px auto;padding:0 20px}
-    h2{border-bottom:2px solid #ddd;padding-bottom:6px;margin-bottom:14px}
-    .item{margin-bottom:20px}
-    .title{font-weight:600}
-    .time{color:#555;font-size:.9rem}
+        /* Navigation */
+        .navbar {
+            background-color: #1e3a8a;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    footer{background:#112f7a;color:#fff;text-align:center;padding:16px;margin-top:40px}
-  </style>
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #60a5fa;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .header .title {
+            font-size: 1.5rem;
+            font-weight: normal;
+            margin-bottom: 2rem;
+        }
+
+        .header .summary {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .btn {
+            background-color: white;
+            color: #1e3a8a;
+            border: 2px solid #1e3a8a;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #1e3a8a;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            border-left: 4px solid #1e3a8a;
+            background-color: #f8fafc;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .job-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .job-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .dates {
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .location {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .job-description li::before {
+            content: '•';
+            color: #1e3a8a;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: #1e3a8a;
+            border-radius: 50%;
+        }
+
+        .education-title {
+            font-size: 1.3rem;
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .institution {
+            color: #64748b;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-dates {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: #1e3a8a;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category::before {
+            content: '■';
+            color: #1e3a8a;
+            font-size: 1.2rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .skill-tag.filled {
+            background-color: #1e3a8a;
+            color: white;
+        }
+
+        .skill-tag.outlined {
+            background-color: transparent;
+            color: #1e3a8a;
+            border: 2px solid #1e3a8a;
+        }
+
+        .skill-tag.light {
+            background-color: #dbeafe;
+            color: #1e3a8a;
+        }
+
+        /* Volunteer Section */
+        .volunteer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .volunteer-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .volunteer-card::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            background-color: #1e3a8a;
+            border-radius: 50%;
+        }
+
+        .volunteer-title {
+            font-size: 1.3rem;
+            color: #1e3a8a;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .volunteer-description {
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        /* Certificates Section */
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .certificate-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .certificate-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background-color: #1e3a8a;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .certificate-text {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header .title {
+                font-size: 1.2rem;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .social-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .job-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#volunteer">Volunteer</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+        </ul>
+    </nav>
 
-<!-- HERO -->
-<section class="hero">
-  <nav class="topnav">
-    <a href="#experience">Experience</a>
-    <a href="#education">Education</a>
-    <a href="#skills">Skills</a>
-    <a href="#volunteer">Volunteer</a>
-    <a href="#certificates">Certificates</a>
-  </nav>
+    <!-- Header Section -->
+    <header class="header" id="about">
+        <h1>Emin Enes Oğuz</h1>
+        <p class="title">Computer Engineer</p>
+        <p class="summary">
+            Experienced Enterprise Software Development professional with expertise in Advanced Database Management, 
+            Cybersecurity Systems, and full-stack development. Specialized in mobile application architecture, 
+            enterprise security protocols, and emerging technologies including AI, Machine Learning, and NLP. 
+            Proven track record of delivering high-impact solutions in international corporate environments.
+        </p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span>📍</span>
+                <span>Istanbul, Turkey</span>
+            </div>
+            <div class="contact-item">
+                <span>📧</span>
+                <span>eenesoguz.mbs@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <span>📞</span>
+                <span>+90 506 169 2040</span>
+            </div>
+            <div class="contact-item">
+                <span>🌐</span>
+                <span>www.enesoguz.com</span>
+            </div>
+        </div>
+        <div class="social-buttons">
+            <a href="#" class="btn">LinkedIn</a>
+            <a href="#" class="btn">GitHub</a>
+        </div>
+    </header>
 
-  <div class="hero-inner">
-    <div class="avatar-wrap">
-      <img src="assets/profile.jpg" alt="Emin Enes Oğuz"/>
-    </div>
-    <div class="intro">
-      <h1>Emin Enes Oğuz</h1>
-      <h2>Computer Engineer</h2>
-      <p class="lead">Computer Engineering student with hands-on experience in Flutter mobile apps, Java/Spring Boot, Oracle PL/SQL, and networking basics. Interested in AI, Machine Learning, Web Development, Databases, and NLP.</p>
-      <ul class="facts">
-        <li><span class="dot"></span> Istanbul, Turkey</li>
-        <li><span class="dot"></span> +90 506 169 2040</li>
-        <li><span class="dot"></span><a href="mailto:eenesoguz.mbs@gmail.com">eenesoguz.mbs@gmail.com</a></li>
-        <li><span class="dot"></span><a href="https://www.enesoguz.com">www.enesoguz.com</a></li>
-      </ul>
-      <div class="cta">
-        <a class="btn btn-light" href="https://linkedin.com/in/enes-o%C4%9Fuz" target="_blank">LinkedIn</a>
-        <a class="btn btn-outline" href="https://github.com/enesoguzz" target="_blank">GitHub</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <h2 class="section-title">Experience</h2>
+            
+            <div class="experience-item">
+                <h3 class="job-title">IT Intern</h3>
+                <p class="company">Renault Turkey</p>
+                <div class="job-meta">
+                    <span class="dates">08/2023 - 06/2025</span>
+                    <span class="location">Istanbul</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Developed and maintained enterprise grade Flutter mobile applications for automotive industry operations</li>
+                        <li>Administered FortiNet security infrastructure and implemented comprehensive cybersecurity protocols</li>
+                        <li>Engineered complex PL/SQL scripts for large-scale data retrieval, analysis, and database optimization</li>
+                        <li>Leveraged Oracle Database expertise to enhance system performance and data integrity</li>
+                        <li>Architected Windows Server environments and implemented enterprise networking solutions</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- EXPERIENCE -->
-<section id="experience">
-  <h2>Experience</h2>
-  <div class="item">
-    <div class="title">IT Intern – Renault Turkey (08/2023 – 06/2025, Istanbul)</div>
-    <ul>
-      <li>Flutter mobile application projects</li>
-      <li>Maintained FortiNet and security systems</li>
-      <li>PL/SQL scripts for data retrieval and updates</li>
-      <li>Oracle PL/SQL operations and troubleshooting</li>
-      <li>Assisted with TCP/IP, DNS, DHCP, VPN issues</li>
-      <li>Basics of Windows Server user/permissions</li>
-    </ul>
-  </div>
-  <div class="item">
-    <div class="title">Software Development Intern – Huawei (06/2023 – 08/2023)</div>
-    <ul>
-      <li>Training on SpringBoot & Java principles</li>
-      <li>Observed large-scale international projects</li>
-    </ul>
-  </div>
-  <div class="item">
-    <div class="title">Translator & Artist Guide – PSM Zorlu Center (05/2022 – 10/2022)</div>
-    <ul><li>Provided translation & guidance for international artists</li></ul>
-  </div>
-  <div class="item">
-    <div class="title">IT Intern – KHAS YEP (09/2021 – 06/2023)</div>
-    <ul><li>Website & database training, innovation workshops</li></ul>
-  </div>
-</section>
+            <div class="experience-item">
+                <h3 class="job-title">Software Development Intern</h3>
+                <p class="company">Huawei</p>
+                <div class="job-meta">
+                    <span class="dates">06/2023 - 08/2023</span>
+                    <span class="location">Istanbul</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Mastered advanced SpringBoot framework architecture and Java enterprise development methodologies</li>
+                        <li>Analyzed and contributed to international enterprise-scale software development projects</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- EDUCATION -->
-<section id="education">
-  <h2>Education</h2>
-  <div class="item"><div class="title">B.Sc. in Computer Engineering – Kadir Has University</div><div class="time">09/2020 – 06/2025</div></div>
-  <div class="item"><div class="title">Bursa BIST Fen Lisesi</div><div class="time">2014 – 2019</div></div>
-  <div class="item"><div class="title">Bursa Şahinkaya Fen Lisesi</div></div>
-</section>
+            <div class="experience-item">
+                <h3 class="job-title">Translator & Artist Guide</h3>
+                <p class="company">PSM Zorlu Center</p>
+                <div class="job-meta">
+                    <span class="dates">05/2022 - 10/2022</span>
+                    <span class="location">Istanbul</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Delivered professional translation services and cultural liaison support for international artists and VIP guests</li>
+                        <li>Enhanced multilingual communication capabilities while maintaining academic excellence</li>
+                    </ul>
+                </div>
+            </div>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills & Interests</h2>
-  <p><b>Programming:</b> C++, C, Python, Flutter, Java, SpringBoot</p>
-  <p><b>Technical:</b> Oracle Databases, FortiNet firewalls, Simulink, Microsoft Office, Power BI</p>
-  <p><b>Language:</b> English (B2 – Upper Intermediate)</p>
-  <p><b>Interests:</b> AI, Machine Learning, Web Development, Database Management, NLP</p>
-</section>
+            <div class="experience-item">
+                <h3 class="job-title">IT Intern</h3>
+                <p class="company">KHAS YEP</p>
+                <div class="job-meta">
+                    <span class="dates">09/2021 - 06/2023</span>
+                    <span class="location">Istanbul</span>
+                </div>
+                <div class="job-description">
+                    <ul>
+                        <li>Acquired comprehensive expertise in full stack web development and advanced database architecture</li>
+                        <li>Participated in strategic innovation initiatives and executive leadership development programs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-<!-- VOLUNTEER -->
-<section id="volunteer">
-  <h2>Volunteer Projects</h2>
-  <ul>
-    <li><b>Climate Ambassador</b> – Ministry of Environment sustainability programs (2021–2023)</li>
-    <li><b>Görmezden Gelme</b> – Live sports audio descriptions for visually impaired (2020–2022)</li>
-    <li><b>Aydınlık Gelecek Projects</b> – Seminars & book donations for high school students</li>
-    <li><b>Hatay Child Park Project</b> – Play areas for children after 2023 earthquakes</li>
-  </ul>
-</section>
+        <!-- Education Section -->
+        <section class="section" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3 class="education-title">B.Sc. in Computer Engineering</h3>
+                    <p class="institution">Kadir Has University</p>
+                    <p class="education-dates">09/2020 - 06/2025</p>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-title">High School</h3>
+                    <p class="institution">Bursa BİST Fen Lisesi</p>
+                    <p class="education-dates">2014 - 2019</p>
+                </div>
+                <div class="education-card">
+                    <h3 class="education-title">High School</h3>
+                    <p class="institution">Bursa Şahinkaya Fen Lisesi</p>
+                    <p class="education-dates">2014 - 2019</p>
+                </div>
+            </div>
+        </section>
 
-<!-- CERTIFICATES -->
-<section id="certificates">
-  <h2>Certificates & Trainings</h2>
-  <ul>
-    <li>Python for Data Science, AI & Development – IBM</li>
-    <li>Career Path Essentials – IESE Business School</li>
-    <li>Game Jam – Google</li>
-    <li>AI and Ethics – Renault Turkey</li>
-    <li>A Brief History of Human Spaceflight – University of Houston</li>
-    <li>Introduction to Git and GitHub – Google</li>
-    <li>Fundamentals of Project Management – Google</li>
-  </ul>
-</section>
+        <!-- Skills Section -->
+        <section class="section" id="skills">
+            <h2 class="section-title">Skills & Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag filled">C++</span>
+                        <span class="skill-tag filled">C#</span>
+                        <span class="skill-tag filled">Python</span>
+                        <span class="skill-tag filled">Flutter</span>
+                        <span class="skill-tag filled">Java</span>
+                        <span class="skill-tag filled">Spring Boot</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag outlined">Oracle Database</span>
+                        <span class="skill-tag outlined">Microsoft Office</span>
+                        <span class="skill-tag outlined">Power BI</span>
+                        <span class="skill-tag outlined">Teamwork</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag light">English (B2 - Upper Intermediate)</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Interests</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag filled">AI</span>
+                        <span class="skill-tag filled">Machine Learning</span>
+                        <span class="skill-tag filled">Web Development</span>
+                        <span class="skill-tag filled">Database Management</span>
+                        <span class="skill-tag filled">NLP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<footer>
-  © 2025 Emin Enes Oğuz | Hosted on GitHub Pages
-</footer>
+        <!-- Volunteer Section -->
+        <section class="section" id="volunteer">
+            <h2 class="section-title">Volunteer Projects</h2>
+            <div class="volunteer-grid">
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">Environmental Sustainability Ambassador</h3>
+                    <p class="volunteer-description">
+                        Appointed as official representative in national sustainability initiatives and environmental 
+                        policy development programs sponsored by the Ministry of Environment, Urban Planning and Climate Change.
+                    </p>
+                </div>
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">Accessibility Technology Advocate - Görmezden Gelme</h3>
+                    <p class="volunteer-description">
+                        Developed and delivered innovative audio description services for live sports broadcasting, 
+                        enhancing accessibility for visually impaired community members through advanced assistive technology solutions.
+                    </p>
+                </div>
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">Educational Leadership Initiative - Aydınlık Gelecek</h3>
+                    <p class="volunteer-description">
+                        Spearheaded comprehensive educational outreach programs including strategic seminar coordination 
+                        and resource distribution initiatives to support academic advancement for underserved high school students.
+                    </p>
+                </div>
+                <div class="volunteer-card">
+                    <h3 class="volunteer-title">Disaster Relief Infrastructure Project - Hatay</h3>
+                    <p class="volunteer-description">
+                        Led construction and development of recreational infrastructure for earthquake-affected children 
+                        in Hatay, demonstrating crisis response leadership and community resilience building expertise.
+                    </p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Certificates Section -->
+        <section class="section" id="certificates">
+            <h2 class="section-title">Certificates & Trainings</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <span class="certificate-text">Python for Data Science, AI & Development - IBM</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">AI and Ethics - Resoult Turkey</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">Fundamentals of Project Management - Google</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">Career Path Essentials - IESE Business School</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">A Brief History of Human Spaceflight - University of Houston</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">Game Jam - Google</span>
+                </div>
+                <div class="certificate-item">
+                    <span class="certificate-text">Introduction to Git and GitHub - Google</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation links on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

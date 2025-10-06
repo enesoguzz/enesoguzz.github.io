@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anomaly Mini Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Anomaly Detection – Browser Demo</h1>
+    <p>Sentetik veri üret veya CSV yükle. Yöntem: Rolling-Z-Score + IQR.</p>
+  </header>
+
+  <section class="controls">
+    <button id="btn-generate">Generate data</button>
+    <label>Window
+      <input id="win" type="number" min="3" value="30">
+    </label>
+    <label>Z-thresh
+      <input id="zth" type="number" step="0.1" value="3.0">
+    </label>
+    <label>IQR-k
+      <input id="iqrk" type="number" step="0.1" value="1.5">
+    </label>
+    <button id="btn-detect">Detect anomalies</button>
+    <button id="btn-download">Download CSV</button>
+  </section>
+
+  <section class="upload">
+    <input id="file" type="file" accept=".csv" />
+    <small>CSV biçimi: <code>timestamp,value</code> veya başlıksız 2 kolon.</small>
+  </section>
+
+  <section class="charts">
+    <canvas id="chart" height="140"></canvas>
+    <canvas id="chartScore" height="100"></canvas>
+  </section>
+
+  <footer>
+    <small>Algoritma: rolling mean/std ile z-score, ayrıca IQR bandı. Aşan noktalar anomali.</small>
+  </footer>
+</body>
+</html>
